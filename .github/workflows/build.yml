@@ -1,0 +1,59 @@
+name: build
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Install Fyne build deps
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libgl1-mesa-dev xorg-dev libwayland-dev libxkbcommon-dev
+      - name: Vet
+        run: go vet ./...
+      - name: Test
+        run: go test -race ./...
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Check C compiler
+        shell: bash
+        run: |
+          if ! command -v gcc >/dev/null; then choco install mingw -y --no-progress; fi
+          gcc --version
+      - name: Test
+        shell: bash
+        run: go test ./...
+      - name: Build SimpelPlaytime.exe
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          if [[ "$GITHUB_REF" != refs/tags/* ]]; then VERSION="1.0.0-dev.${GITHUB_SHA::7}"; fi
+          go build -trimpath -ldflags "-H windowsgui -s -w -X main.version=${VERSION}" -o SimpelPlaytime.exe .
+          ls -la SimpelPlaytime.exe
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SimpelPlaytime-windows
+          path: SimpelPlaytime.exe
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: SimpelPlaytime.exe
+          generate_release_notes: true
