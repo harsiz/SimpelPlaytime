@@ -1,0 +1,678 @@
+# Simpel Playtime game + app database
+#
+# Name | exe names (comma separated) | steam=<app id> | wiki=<wikipedia article>
+#
+# exe names can have conditions in braces:
+#   javaw.exe{title:^Minecraft}      the main window title must match the regex
+#   hl2.exe{path:\half-life 2\}      the full exe path must contain the text
+#   godot*.exe                       simple glob
+#
+# Several exes on one line all count as the SAME game, so osu! stable and
+# osu! lazer (both osu!.exe) share one playtime, and GTA V legacy + enhanced
+# share one too.
+
+@games
+
+# --- Sandbox / block games ---
+Minecraft | javaw.exe{title:^minecraft}, java.exe{title:^minecraft}, Minecraft.Windows.exe | wiki=Minecraft
+Lunar Client | javaw.exe{title:^lunar client}, java.exe{title:^lunar client} | wiki=Lunar Client
+Badlion Client | javaw.exe{title:^badlion}, java.exe{title:^badlion}
+Feather Client | javaw.exe{title:^feather}, java.exe{title:^feather}
+Minecraft Dungeons | Dungeons-Win64-Shipping.exe, Dungeons.exe{path:minecraft dungeons} | steam=1672970
+Roblox | RobloxPlayerBeta.exe, Windows10Universal.exe{path:roblox} | wiki=Roblox
+Terraria | Terraria.exe, tModLoader.exe, tModLoader64Bit.exe | steam=105600
+Starbound | starbound.exe | steam=211820
+Garry's Mod | gmod.exe, hl2.exe{path:\garrysmod\} | steam=4000
+Unturned | Unturned.exe | steam=304930
+Core Keeper | CoreKeeper.exe | steam=1621690
+Stardew Valley | Stardew Valley.exe, StardewModdingAPI.exe | steam=413150
+Vintage Story | Vintagestory.exe | wiki=Vintage Story
+Teardown | teardown.exe | steam=1167630
+Scrap Mechanic | ScrapMechanic.exe | steam=387990
+Besiege | Besiege.exe | steam=346010
+Trailmakers | Trailmakers.exe | steam=585420
+Kerbal Space Program | KSP_x64.exe, KSP.exe | steam=220200
+Kerbal Space Program 2 | KSP2_x64.exe | steam=954850
+Space Engineers | SpaceEngineers.exe | steam=244850
+Astroneer | Astro-Win64-Shipping.exe | steam=361420
+
+# --- Rhythm ---
+osu! | osu!.exe | wiki=Osu!
+McOsu | McOsu.exe
+Beat Saber | Beat Saber.exe | steam=620980
+Geometry Dash | GeometryDash.exe | steam=322170
+Clone Hero | Clone Hero.exe | wiki=Clone Hero
+Etterna | Etterna.exe
+Quaver | Quaver.exe | steam=980610
+StepMania | StepMania.exe, StepMania-SSE2.exe
+Friday Night Funkin' | Funkin.exe | wiki=Friday Night Funkin'
+Synth Riders | SynthRiders.exe | steam=885000
+Audiosurf 2 | Audiosurf2.exe | steam=235800
+Crypt of the NecroDancer | NecroDancer.exe | steam=247080
+Hi-Fi Rush | Hibiki-Win64-Shipping.exe | steam=1817230
+Rhythm Doctor | Rhythm Doctor.exe | steam=774181
+A Dance of Fire and Ice | A Dance of Fire and Ice.exe | steam=977950
+Muse Dash | MuseDash.exe | steam=774171
+
+# --- Competitive shooters ---
+Counter-Strike 2 | cs2.exe | steam=730
+Counter-Strike: Source | cstrike.exe, cstrike_win64.exe, hl2.exe{path:\counter-strike source\} | steam=240
+Tom Clancy's Rainbow Six Siege | RainbowSix.exe, RainbowSix_Vulkan.exe, RainbowSix_BE.exe, RainbowSixGame.exe | steam=359550
+Valorant | VALORANT-Win64-Shipping.exe | wiki=Valorant
+Overwatch 2 | Overwatch.exe | steam=2357570
+Apex Legends | r5apex.exe, r5apex_dx12.exe | steam=1172470
+Fortnite | FortniteClient-Win64-Shipping.exe | wiki=Fortnite
+PUBG: Battlegrounds | TslGame.exe | steam=578080
+Call of Duty | cod.exe, cod22-cod.exe, cod23-cod.exe, cod24-cod.exe | steam=1938090
+Call of Duty: Modern Warfare (2019) | ModernWarfare.exe
+Call of Duty: Black Ops Cold War | BlackOpsColdWar.exe
+Call of Duty: Vanguard | Vanguard.exe{path:call of duty}
+Call of Duty: Black Ops 4 | BlackOps4.exe
+Call of Duty: Black Ops III | BlackOps3.exe | steam=311210
+Call of Duty: Black Ops II | t6mp.exe, t6sp.exe, t6zm.exe | steam=202970
+Call of Duty: Black Ops | BlackOps.exe, BlackOpsMP.exe | steam=42700
+Call of Duty: Modern Warfare 2 (2009) | iw4sp.exe, iw4mp.exe, iw4x.exe | steam=10180
+Call of Duty 4: Modern Warfare | iw3sp.exe, iw3mp.exe | steam=7940
+Call of Duty: World at War | CoDWaW.exe, CoDWaWmp.exe | steam=10090
+Call of Duty: WWII | s2_sp64_ship.exe, s2_mp64_ship.exe | steam=476600
+Call of Duty: Infinite Warfare | iw7_ship.exe | steam=292730
+Call of Duty: Advanced Warfare | s1_sp64_ship.exe, s1_mp64_ship.exe | steam=209650
+Call of Duty: Ghosts | iw6sp64_ship.exe, iw6mp64_ship.exe | steam=209160
+Battlefield 6 | bf6.exe | steam=2807960
+Battlefield 2042 | BF2042.exe | steam=1517290
+Battlefield V | bfv.exe | steam=1238810
+Battlefield 1 | bf1.exe | steam=1238840
+Battlefield 4 | bf4.exe | steam=1238860
+Battlefield 3 | bf3.exe | steam=1238820
+Titanfall 2 | Titanfall2.exe | steam=1237970
+Halo: The Master Chief Collection | MCC-Win64-Shipping.exe, mcclauncher.exe | steam=976730
+Halo Infinite | HaloInfinite.exe | steam=1240440
+Destiny 2 | destiny2.exe | steam=1085660
+Team Fortress 2 | tf_win64.exe, tf.exe, hl2.exe{path:\team fortress 2\} | steam=440
+Escape from Tarkov | EscapeFromTarkov.exe | wiki=Escape from Tarkov
+Hunt: Showdown 1896 | HuntGame.exe | steam=594650
+Ready or Not | ReadyOrNot-Win64-Shipping.exe, ReadyOrNotSteam-Win64-Shipping.exe | steam=1144200
+Insurgency: Sandstorm | InsurgencyClient-Win64-Shipping.exe | steam=581320
+The Finals | Discovery.exe | steam=2073850
+Splitgate | PortalWars-Win64-Shipping.exe | steam=677620
+Delta Force | DeltaForceClient-Win64-Shipping.exe | steam=2507950
+Arc Raiders | PioneerGame.exe | steam=1808500
+Marvel Rivals | Marvel-Win64-Shipping.exe | steam=2767030
+Paladins | Paladins.exe | steam=444090
+Squad | SquadGame.exe | steam=393380
+Hell Let Loose | HLL-Win64-Shipping.exe | steam=686810
+Arma 3 | arma3_x64.exe, arma3.exe | steam=107410
+Arma Reforger | ArmaReforgerSteam.exe, ArmaReforger.exe | steam=1874880
+War Thunder | aces.exe | steam=236390
+World of Tanks | WorldOfTanks.exe | steam=1407200
+World of Warships | WorldOfWarships64.exe, WorldOfWarships.exe | steam=552990
+Krunker | Krunker.exe, Official Krunker.io Client.exe | wiki=Krunker.io
+Rust | RustClient.exe | steam=252490
+DayZ | DayZ_x64.exe, DayZ_BE.exe | steam=221100
+Chivalry 2 | Chivalry2-Win64-Shipping.exe | steam=1824220
+Mordhau | Mordhau-Win64-Shipping.exe | steam=629760
+For Honor | ForHonor.exe | steam=304390
+Star Wars Battlefront II (2017) | starwarsbattlefrontii.exe | steam=1237950
+Black Mesa | bms.exe | steam=362890
+Ultrakill | ULTRAKILL.exe | steam=1229490
+DOOM Eternal | DOOMEternalx64vk.exe | steam=782330
+DOOM (2016) | DOOMx64vk.exe, DOOMx64.exe | steam=379720
+DOOM: The Dark Ages | DOOMTheDarkAges.exe | steam=3017860
+Wolfenstein II: The New Colossus | NewColossus_x64vk.exe | steam=612880
+Borderlands 4 | Borderlands4.exe | steam=1285190
+Borderlands 3 | Borderlands3.exe | steam=397540
+Borderlands 2 | Borderlands2.exe | steam=49520
+Tiny Tina's Wonderlands | Wonderlands.exe | steam=1286680
+Far Cry 6 | FarCry6.exe
+Far Cry 5 | FarCry5.exe | steam=552520
+Metro Exodus | MetroExodus.exe | steam=412020
+S.T.A.L.K.E.R. 2: Heart of Chornobyl | Stalker2-Win64-Shipping.exe | steam=1643320
+Atomic Heart | AtomicHeart-Win64-Shipping.exe | steam=668580
+Payday 2 | payday2_win32_release.exe | steam=218620
+Payday 3 | PAYDAY3-Win64-Shipping.exe, PAYDAY3Client-Win64-Shipping.exe | steam=1272080
+GTFO | GTFO.exe | steam=493520
+Left 4 Dead 2 | left4dead2.exe | steam=550
+Left 4 Dead | left4dead.exe | steam=500
+Back 4 Blood | Back4Blood.exe | steam=924970
+Killing Floor 2 | KFGame.exe | steam=232090
+World War Z | wwzRetail.exe, wwzRetailEgs.exe | steam=699130
+Warhammer: Vermintide 2 | vermintide2.exe, vermintide2_dx12.exe | steam=552500
+Warhammer 40,000: Darktide | Darktide.exe | steam=1361210
+Deep Rock Galactic | FSD-Win64-Shipping.exe | steam=548430
+Helldivers 2 | helldivers2.exe | steam=553850
+
+# --- MOBA / strategy ---
+League of Legends | League of Legends.exe | wiki=League of Legends
+Legends of Runeterra | LoR.exe | wiki=Legends of Runeterra
+Dota 2 | dota2.exe | steam=570
+Deadlock | deadlock.exe, project8.exe | steam=1422450
+Smite | Smite.exe | steam=386360
+Heroes of the Storm | HeroesOfTheStorm_x64.exe, HeroesOfTheStorm.exe | wiki=Heroes of the Storm
+StarCraft II | SC2_x64.exe, SC2.exe | wiki=StarCraft II
+StarCraft: Remastered | StarCraft.exe | wiki=StarCraft: Remastered
+Warcraft III: Reforged | Warcraft III.exe | wiki=Warcraft III: Reforged
+Age of Empires II: Definitive Edition | AoE2DE_s.exe | steam=813780
+Age of Empires IV | RelicCardinal.exe | steam=1466860
+Age of Mythology: Retold | AoMRT_s.exe | steam=1934680
+Company of Heroes 3 | RelicCoH3.exe | steam=1677280
+Company of Heroes 2 | RelicCoH2.exe | steam=231430
+Sid Meier's Civilization VII | CivilizationVII.exe | steam=1295660
+Sid Meier's Civilization VI | CivilizationVI.exe, CivilizationVI_DX12.exe | steam=289070
+Sid Meier's Civilization V | CivilizationV.exe, CivilizationV_DX11.exe | steam=8930
+Stellaris | stellaris.exe | steam=281990
+Hearts of Iron IV | hoi4.exe | steam=394360
+Europa Universalis IV | eu4.exe | steam=236850
+Crusader Kings III | ck3.exe | steam=1158310
+Victoria 3 | victoria3.exe | steam=529340
+Total War: Warhammer III | Warhammer3.exe | steam=1142710
+Total War: Three Kingdoms | Three_Kingdoms.exe | steam=779340
+Total War: Rome II | Rome2.exe | steam=214950
+XCOM 2 | XCom2.exe | steam=268500
+Frostpunk | Frostpunk.exe | steam=323190
+Frostpunk 2 | Frostpunk2-Win64-Shipping.exe | steam=1601580
+Anno 1800 | Anno1800.exe | steam=916440
+They Are Billions | TheyAreBillions.exe | steam=644930
+Bloons TD 6 | BloonsTD6.exe | steam=960090
+Plants vs. Zombies | PlantsVsZombies.exe, popcapgame1.exe | steam=3590
+
+# --- MMO ---
+World of Warcraft | Wow.exe, WowClassic.exe, WowB.exe, WowT.exe | wiki=World of Warcraft
+Final Fantasy XIV | ffxiv_dx11.exe, ffxiv.exe | steam=39210
+The Elder Scrolls Online | eso64.exe, eso.exe | steam=306130
+Guild Wars 2 | Gw2-64.exe, Gw2.exe | steam=1284210
+Lost Ark | LOSTARK.exe | steam=1599340
+New World: Aeternum | NewWorld.exe | steam=1063730
+Black Desert | BlackDesert64.exe, BlackDesert32.exe | steam=582660
+Albion Online | Albion-Online.exe | steam=761890
+RuneScape | rs2client.exe | steam=1343400
+Old School RuneScape | osclient.exe, RuneLite.exe | steam=1343370
+MapleStory | MapleStory.exe | steam=216150
+Warframe | Warframe.x64.exe, Warframe.exe | steam=230410
+Path of Exile 2 | PathOfExile.exe{path:path of exile 2}, PathOfExileSteam.exe{path:path of exile 2}, PathOfExile_x64.exe{path:path of exile 2} | steam=2694490
+Path of Exile | PathOfExile.exe, PathOfExile_x64.exe, PathOfExileSteam.exe, PathOfExile_x64Steam.exe | steam=238960
+Diablo IV | Diablo IV.exe | steam=2344520
+Diablo III | Diablo III64.exe, Diablo III.exe | wiki=Diablo III
+Diablo II: Resurrected | D2R.exe | wiki=Diablo II: Resurrected
+Diablo Immortal | DiabloImmortal.exe | wiki=Diablo Immortal
+Hearthstone | Hearthstone.exe | wiki=Hearthstone
+Genshin Impact | GenshinImpact.exe, YuanShen.exe | wiki=Genshin Impact
+Honkai: Star Rail | StarRail.exe | wiki=Honkai: Star Rail
+Honkai Impact 3rd | BH3.exe | wiki=Honkai Impact 3rd
+Zenless Zone Zero | ZenlessZoneZero.exe | wiki=Zenless Zone Zero
+Wuthering Waves | Client-Win64-Shipping.exe{path:wuthering}, Wuthering Waves.exe | wiki=Wuthering Waves
+Tower of Fantasy | QRSL.exe | wiki=Tower of Fantasy
+Star Citizen | StarCitizen.exe | wiki=Star Citizen
+EVE Online | exefile.exe | steam=8500
+Phantasy Star Online 2 New Genesis | pso2.exe | steam=1056640
+Dofus | Dofus.exe | wiki=Dofus
+Mabinogi | Client.exe{path:mabinogi}
+
+# --- Open world / action ---
+Grand Theft Auto V | GTA5.exe, GTA5_Enhanced.exe, GTA5_BE.exe | steam=271590
+Grand Theft Auto IV | GTAIV.exe | steam=12210
+Grand Theft Auto: San Andreas | gta_sa.exe, gta-sa.exe | steam=12120
+Grand Theft Auto: Vice City | gta-vc.exe | steam=12110
+Grand Theft Auto III | gta3.exe | steam=12100
+Grand Theft Auto: San Andreas - Definitive Edition | SanAndreas.exe
+Grand Theft Auto: Vice City - Definitive Edition | ViceCity.exe
+Grand Theft Auto III - Definitive Edition | LibertyCity.exe
+Red Dead Redemption 2 | RDR2.exe | steam=1174180
+Red Dead Redemption | RDR.exe | steam=2668510
+Cyberpunk 2077 | Cyberpunk2077.exe | steam=1091500
+The Witcher 3: Wild Hunt | witcher3.exe | steam=292030
+The Witcher 2 | witcher2.exe | steam=20920
+The Elder Scrolls V: Skyrim Special Edition | SkyrimSE.exe, skse64_loader.exe | steam=489830
+The Elder Scrolls V: Skyrim | TESV.exe | steam=72850
+The Elder Scrolls V: Skyrim VR | SkyrimVR.exe | steam=611670
+The Elder Scrolls IV: Oblivion Remastered | OblivionRemastered-Win64-Shipping.exe | steam=2623190
+The Elder Scrolls IV: Oblivion | Oblivion.exe | steam=22330
+The Elder Scrolls III: Morrowind | Morrowind.exe, openmw.exe | steam=22320
+Fallout 4 | Fallout4.exe, f4se_loader.exe | steam=377160
+Fallout 76 | Fallout76.exe | steam=1151340
+Fallout: New Vegas | FalloutNV.exe | steam=22380
+Fallout 3 | Fallout3.exe | steam=22370
+Fallout Shelter | FalloutShelter.exe | steam=588430
+Starfield | Starfield.exe | steam=1716740
+Hogwarts Legacy | HogwartsLegacy.exe | steam=990080
+Elden Ring | eldenring.exe | steam=1245620
+Elden Ring Nightreign | nightreign.exe | steam=2622380
+Dark Souls III | DarkSoulsIII.exe | steam=374320
+Dark Souls II: Scholar of the First Sin | DarkSoulsII.exe | steam=335300
+Dark Souls: Remastered | DarkSoulsRemastered.exe | steam=570940
+Sekiro: Shadows Die Twice | sekiro.exe | steam=814380
+Armored Core VI: Fires of Rubicon | armoredcore6.exe | steam=1888160
+Black Myth: Wukong | b1-Win64-Shipping.exe | steam=2358720
+Monster Hunter Wilds | MonsterHunterWilds.exe | steam=2246340
+Monster Hunter: World | MonsterHunterWorld.exe | steam=582010
+Monster Hunter Rise | MonsterHunterRise.exe | steam=1446780
+Baldur's Gate 3 | bg3.exe, bg3_dx11.exe | steam=1086940
+Divinity: Original Sin 2 | EoCApp.exe | steam=435150
+Mass Effect Legendary Edition | MassEffect1.exe, MassEffect2.exe, MassEffect3.exe, MassEffectLauncher.exe | steam=1328670
+Dragon Age: Inquisition | DragonAgeInquisition.exe | steam=1222690
+Kingdom Come: Deliverance II | KingdomCome.exe{path:deliverance ii}, KingdomCome.exe{path:deliverance2}, KingdomCome.exe{path:deliverance 2} | steam=1771300
+Kingdom Come: Deliverance | KingdomCome.exe | steam=379430
+Dying Light 2 | DyingLightGame_x64_rwdi.exe | steam=534380
+Dying Light | DyingLightGame.exe | steam=239140
+Dead Island 2 | DeadIsland-Win64-Shipping.exe | steam=934700
+Assassin's Creed Shadows | ACShadows.exe | steam=3159330
+Assassin's Creed Mirage | ACMirage.exe
+Assassin's Creed Valhalla | ACValhalla.exe
+Assassin's Creed Odyssey | ACOdyssey.exe | steam=812140
+Assassin's Creed Origins | ACOrigins.exe | steam=582160
+Assassin's Creed IV: Black Flag | AC4BFSP.exe | steam=242050
+Assassin's Creed II | AssassinsCreedIIGame.exe | steam=33230
+Watch Dogs 2 | WatchDogs2.exe | steam=447040
+Watch Dogs | watch_dogs.exe | steam=243470
+Tom Clancy's The Division 2 | TheDivision2.exe
+Ghost Recon Breakpoint | GRB.exe, GRB_vulkan.exe
+Star Wars Jedi: Survivor | JediSurvivor.exe | steam=1774580
+Star Wars Jedi: Fallen Order | SwGame-Win64-Shipping.exe, starwarsjedifallenorder.exe | steam=1172380
+Star Wars Outlaws | Outlaws.exe
+Ghost of Tsushima | GhostOfTsushima.exe | steam=2215430
+God of War | GoW.exe | steam=1593500
+God of War Ragnarok | GoWR.exe | steam=2322010
+Marvel's Spider-Man Remastered | Spider-Man.exe | steam=1817070
+Marvel's Spider-Man: Miles Morales | MilesMorales.exe | steam=1817190
+Marvel's Spider-Man 2 | Spider-Man2.exe | steam=2651280
+Horizon Zero Dawn | HorizonZeroDawn.exe, HorizonZeroDawnRemastered.exe | steam=1151640
+Horizon Forbidden West | HorizonForbiddenWest.exe | steam=2420110
+Days Gone | DaysGone.exe | steam=1259420
+Death Stranding | ds.exe{path:death stranding} | steam=1190460
+Detroit: Become Human | DetroitBecomeHuman.exe | steam=1222140
+The Last of Us Part I | tlou-i.exe | steam=1888930
+The Last of Us Part II Remastered | tlou-ii.exe | steam=2531310
+Uncharted: Legacy of Thieves Collection | u4.exe, tll.exe | steam=1659420
+Returnal | Returnal-Win64-Shipping.exe | steam=1649240
+Ratchet & Clank: Rift Apart | RiftApart.exe | steam=1895880
+Stellar Blade | SB-Win64-Shipping.exe | steam=3489700
+Alan Wake 2 | AlanWake2.exe
+Control | Control_DX12.exe, Control_DX11.exe | steam=870780
+Hitman: World of Assassination | HITMAN3.exe | steam=1659040
+Dishonored 2 | Dishonored2.exe | steam=403640
+Prey (2017) | Prey.exe | steam=480490
+BioShock Infinite | BioShockInfinite.exe | steam=8870
+Mafia: Definitive Edition | mafiadefinitiveedition.exe | steam=1030840
+Max Payne 3 | MaxPayne3.exe | steam=204100
+L.A. Noire | LANoire.exe | steam=110800
+Bully: Scholarship Edition | Bully.exe | steam=12200
+Sleeping Dogs: Definitive Edition | sdhdship.exe | steam=307690
+Saints Row IV | SaintsRowIV.exe | steam=206420
+Just Cause 3 | JustCause3.exe | steam=225540
+Mirror's Edge | MirrorsEdge.exe | steam=17410
+Devil May Cry 5 | DevilMayCry5.exe | steam=601150
+Resident Evil 4 | re4.exe | steam=2050650
+Resident Evil Village | re8.exe | steam=1196590
+Resident Evil 2 | re2.exe | steam=883710
+Resident Evil 3 | re3.exe | steam=952060
+Resident Evil 7: Biohazard | re7.exe | steam=418370
+Persona 5 Royal | P5R.exe | steam=1687950
+Persona 3 Reload | P3R.exe | steam=2161700
+Metaphor: ReFantazio | METAPHOR.exe | steam=2679460
+Yakuza: Like a Dragon | YakuzaLikeADragon.exe | steam=1235140
+Like a Dragon: Infinite Wealth | likeadragon8.exe | steam=2072450
+Yakuza 0 | Yakuza0.exe | steam=638970
+NieR:Automata | NieRAutomata.exe | steam=524220
+Clair Obscur: Expedition 33 | Sandfall-Win64-Shipping.exe | steam=1903340
+Final Fantasy VII Remake Intergrade | ff7remake_.exe, ff7remake.exe | steam=1462040
+Final Fantasy VII Rebirth | ff7rebirth_.exe | steam=2909400
+Final Fantasy XVI | ffxvi.exe | steam=2515020
+Final Fantasy XV | ffxv_s.exe | steam=637650
+Tales of Arise | Tales of Arise.exe | steam=740130
+Sonic Frontiers | SonicFrontiers.exe | steam=1237320
+Sifu | Sifu.exe | steam=2138710
+Ghostrunner | Ghostrunner-Win64-Shipping.exe | steam=1139900
+No Man's Sky | NMS.exe | steam=275850
+Sea of Thieves | SoTGame.exe | steam=1172620
+
+# --- Survival / crafting ---
+Valheim | valheim.exe | steam=892970
+Palworld | Palworld-Win64-Shipping.exe | steam=1623730
+Subnautica | Subnautica.exe | steam=264710
+Subnautica: Below Zero | SubnauticaZero.exe | steam=848450
+Don't Starve Together | dontstarve_steam_x64.exe, dontstarve_steam.exe | steam=322330
+Sons of the Forest | SonsOfTheForest.exe | steam=1326470
+The Forest | TheForest.exe | steam=242760
+Raft | Raft.exe | steam=648800
+Green Hell | GH.exe | steam=815370
+7 Days to Die | 7DaysToDie.exe | steam=251570
+ARK: Survival Ascended | ArkAscended.exe | steam=2399830
+ARK: Survival Evolved | ShooterGame.exe{path:\ark\} | steam=346110
+Conan Exiles | ConanSandbox.exe | steam=440900
+Enshrouded | enshrouded.exe | steam=1203620
+V Rising | VRising.exe | steam=1604030
+Abiotic Factor | AbioticFactor-Win64-Shipping.exe | steam=427410
+The Long Dark | tld.exe | steam=305620
+Project Zomboid | ProjectZomboid64.exe, ProjectZomboid32.exe | steam=108600
+Satisfactory | FactoryGame-Win64-Shipping.exe, FactoryGameSteam-Win64-Shipping.exe, FactoryGameEGS-Win64-Shipping.exe | steam=526870
+Factorio | factorio.exe | steam=427520
+RimWorld | RimWorldWin64.exe | steam=294100
+Oxygen Not Included | OxygenNotIncluded.exe | steam=457140
+Dyson Sphere Program | DSPGAME.exe | steam=1366540
+Muck | Muck.exe | steam=1625450
+Webfishing | webfishing.exe | steam=3146520
+
+# --- Co-op chaos / party ---
+Among Us | Among Us.exe | steam=945360
+Fall Guys | FallGuys_client_game.exe, FallGuys_client.exe | steam=1097150
+Lethal Company | Lethal Company.exe | steam=1966720
+Phasmophobia | Phasmophobia.exe | steam=739630
+R.E.P.O. | REPO.exe | steam=3241660
+Peak | PEAK.exe | steam=3527290
+Content Warning | Content Warning.exe | steam=2881650
+Liar's Bar | Liar's Bar.exe | steam=3097560
+Buckshot Roulette | Buckshot Roulette.exe | steam=2835570
+Schedule I | Schedule I.exe | steam=3164500
+Supermarket Simulator | Supermarket Simulator.exe | steam=2670630
+Dead by Daylight | DeadByDaylight-Win64-Shipping.exe | steam=381210
+It Takes Two | ItTakesTwo.exe | steam=1426210
+Split Fiction | SplitFiction.exe | steam=2001120
+A Way Out | AWayOut.exe | steam=1222700
+Overcooked! 2 | Overcooked2.exe | steam=728880
+Ultimate Chicken Horse | UltimateChickenHorse.exe | steam=386940
+Human: Fall Flat | Human.exe{path:human fall flat} | steam=477160
+Gang Beasts | Gang Beasts.exe | steam=285900
+Golf With Your Friends | Golf With Your Friends.exe | steam=431240
+Pico Park | PICO PARK.exe | steam=1509960
+Party Animals | PartyAnimals.exe | steam=1260320
+Tabletop Simulator | Tabletop Simulator.exe | steam=286160
+Stumble Guys | Stumble Guys.exe | steam=1677740
+Brawlhalla | Brawlhalla.exe | steam=291550
+Rocket League | RocketLeague.exe | steam=252950
+Gorilla Tag | Gorilla Tag.exe | steam=1533390
+VRChat | VRChat.exe | steam=438100
+Rec Room | RecRoom.exe | steam=471710
+Pavlov | Pavlov-Win64-Shipping.exe | steam=555160
+Blade & Sorcery | BladeAndSorcery.exe | steam=629730
+Boneworks | BONEWORKS.exe | steam=823500
+Bonelab | BONELAB_Steam_Windows64.exe, BONELAB_Oculus_Windows64.exe | steam=1592190
+Half-Life: Alyx | hlvr.exe | steam=546560
+Superhot VR | SH4VR.exe | steam=617830
+Getting Over It with Bennett Foddy | GettingOverIt.exe | steam=240720
+Jump King | JumpKing.exe | steam=1061090
+
+# --- Fighting ---
+Street Fighter 6 | StreetFighter6.exe | steam=1364780
+Tekken 8 | Polaris-Win64-Shipping.exe, TEKKEN 8.exe | steam=1778820
+Tekken 7 | TekkenGame-Win64-Shipping.exe | steam=389730
+Mortal Kombat 1 | MK12.exe | steam=1971870
+Mortal Kombat 11 | MK11.exe | steam=976310
+Guilty Gear -Strive- | GGST-Win64-Shipping.exe | steam=1384160
+Dragon Ball FighterZ | RED-Win64-Shipping.exe | steam=678950
+Dragon Ball: Sparking! Zero | SparkingZERO-Win64-Shipping.exe | steam=1790600
+MultiVersus | MultiVersus-Win64-Shipping.exe | steam=1818750
+Rivals of Aether | RivalsofAether.exe | steam=383980
+Slippi Dolphin (Melee) | Slippi Dolphin.exe | wiki=Super Smash Bros. Melee
+
+# --- Racing / sims ---
+Forza Horizon 5 | ForzaHorizon5.exe | steam=1551360
+Forza Horizon 4 | ForzaHorizon4.exe | steam=1293830
+Assetto Corsa | acs.exe, AssettoCorsa.exe | steam=244210
+Assetto Corsa Competizione | AC2-Win64-Shipping.exe | steam=805550
+iRacing | iRacingSim64DX11.exe | wiki=iRacing
+BeamNG.drive | BeamNG.drive.x64.exe, BeamNG.x64.exe | steam=284160
+Euro Truck Simulator 2 | eurotrucks2.exe | steam=227300
+American Truck Simulator | amtrucks.exe | steam=270880
+Need for Speed Unbound | NeedForSpeedUnbound.exe | steam=1846380
+Need for Speed Heat | NeedForSpeedHeat.exe | steam=1222680
+The Crew Motorfest | TheCrewMotorfest.exe
+Trackmania | Trackmania.exe | steam=2225070
+Wreckfest | Wreckfest_x64.exe, Wreckfest.exe | steam=228380
+F1 24 | F1_24.exe | steam=2488620
+F1 23 | F1_23.exe | steam=2108330
+EA Sports FC 25 | FC25.exe | steam=2669320
+EA Sports FC 24 | FC24.exe | steam=2195250
+EA Sports FC 26 | FC26.exe
+FIFA 23 | FIFA23.exe | steam=1811260
+FIFA 22 | FIFA22.exe | steam=1506830
+eFootball | eFootball.exe | steam=1665460
+NBA 2K25 | NBA2K25.exe | steam=2878980
+NBA 2K24 | NBA2K24.exe | steam=2338770
+Microsoft Flight Simulator 2024 | FlightSimulator2024.exe | steam=2537590
+Microsoft Flight Simulator (2020) | FlightSimulator.exe | steam=1250410
+X-Plane 12 | X-Plane.exe | steam=2014780
+Farming Simulator 25 | FarmingSimulator2025Game.exe | steam=2300320
+Farming Simulator 22 | FarmingSimulator2022Game.exe | steam=1248130
+PowerWash Simulator | PowerWashSimulator.exe | steam=1290000
+House Flipper | HouseFlipper.exe | steam=613100
+Car Mechanic Simulator 2021 | Car Mechanic Simulator 2021.exe | steam=1190000
+Cities: Skylines II | Cities2.exe | steam=949230
+Cities: Skylines | Cities.exe | steam=255710
+The Sims 4 | TS4_x64.exe, TS4.exe | steam=1222670
+SimCity 4 | SimCity 4.exe | steam=24780
+Planet Coaster | PlanetCoaster.exe | steam=493340
+Planet Zoo | PlanetZoo.exe | steam=703080
+Two Point Hospital | TPH.exe | steam=535930
+Jurassic World Evolution 2 | JWE2.exe | steam=1244460
+Spore | SporeApp.exe | steam=17390
+
+# --- Indie / roguelike / platformer ---
+Hades II | Hades2.exe | steam=1145350
+Hades | Hades.exe | steam=1145360
+Hollow Knight: Silksong | Hollow Knight Silksong.exe | steam=1030300
+Hollow Knight | hollow_knight.exe | steam=367520
+Celeste | Celeste.exe | steam=504230
+Undertale | UNDERTALE.exe | steam=391540
+Deltarune | DELTARUNE.exe | steam=1671210
+Cuphead | Cuphead.exe | steam=268910
+Hotline Miami | HotlineMiami.exe | steam=219150
+Slay the Spire | SlayTheSpire.exe, java.exe{title:slay the spire}, javaw.exe{title:slay the spire} | steam=646570
+Balatro | Balatro.exe | steam=2379780
+Vampire Survivors | VampireSurvivors.exe | steam=1794680
+Risk of Rain 2 | Risk of Rain 2.exe | steam=632360
+Enter the Gungeon | EtG.exe | steam=311690
+The Binding of Isaac: Rebirth | isaac-ng.exe | steam=250900
+Dead Cells | deadcells.exe | steam=588650
+Ori and the Will of the Wisps | oriwotw.exe | steam=1057090
+Ori and the Blind Forest: Definitive Edition | oriDE.exe | steam=387290
+Inside | INSIDE.exe | steam=304430
+Limbo | limbo.exe | steam=48000
+Outer Wilds | OuterWilds.exe | steam=753640
+Disco Elysium | disco.exe | steam=632470
+Cult of the Lamb | Cult Of The Lamb.exe | steam=1313140
+Dave the Diver | DaveTheDiver.exe | steam=1868140
+Dredge | DREDGE.exe | steam=1562430
+Pizza Tower | PizzaTower.exe | steam=2231450
+Tunic | Tunic.exe | steam=553420
+Katana Zero | Katana ZERO.exe | steam=460950
+Blasphemous | Blasphemous.exe | steam=774361
+Monster Train | MonsterTrain.exe | steam=1102190
+Inscryption | Inscryption.exe | steam=1092790
+Darkest Dungeon | Darkest.exe | steam=262060
+Darkest Dungeon II | Darkest Dungeon II.exe | steam=1940340
+Noita | noita.exe | steam=881100
+Spelunky 2 | Spel2.exe | steam=418530
+FTL: Faster Than Light | FTLGame.exe | steam=212680
+Into the Breach | Breach.exe | steam=590380
+Papers, Please | PapersPlease.exe | steam=239030
+The Stanley Parable: Ultra Deluxe | The Stanley Parable Ultra Deluxe.exe | steam=1703340
+Rain World | RainWorld.exe | steam=312520
+Omori | OMORI.exe | steam=1150690
+Doki Doki Literature Club | DDLC.exe | steam=698780
+Little Nightmares | LittleNightmares.exe | steam=424840
+Little Nightmares II | Little Nightmares II.exe | steam=860510
+Five Nights at Freddy's | FiveNightsatFreddys.exe | steam=319510
+Five Nights at Freddy's: Security Breach | fnaf9-Win64-Shipping.exe | steam=747660
+Outlast | OLGame.exe | steam=238320
+Alien: Isolation | AI.exe{path:alien isolation} | steam=214490
+Portal 2 | portal2.exe | steam=620
+Portal | hl2.exe{path:\portal\} | steam=400
+Half-Life 2 | hl2.exe{path:\half-life 2\}, hl2_win64.exe{path:\half-life 2\} | steam=220
+Half-Life | hl.exe{path:\half-life\} | steam=70
+Shovel Knight | ShovelKnight.exe | steam=250760
+Brotato | Brotato.exe | steam=1942280
+Halls of Torment | HallsOfTorment.exe | steam=2218750
+Animal Well | Animal Well.exe | steam=813230
+Lethal League Blaze | LLBlaze.exe | steam=553310
+Stray | Stray-Win64-Shipping.exe | steam=1332010
+Sea of Stars | SeaOfStars.exe | steam=1244090
+Chained Echoes | Chained Echoes.exe | steam=1229240
+
+# --- Emulators (they are games, trust) ---
+RetroArch | retroarch.exe | steam=1118310
+Dolphin | Dolphin.exe | wiki=Dolphin (emulator)
+Ryujinx | Ryujinx.exe | wiki=Ryujinx
+Yuzu | yuzu.exe | wiki=Yuzu (emulator)
+Suyu | suyu.exe
+Sudachi | sudachi.exe
+Citron | citron.exe
+Cemu | Cemu.exe | wiki=Cemu
+PCSX2 | pcsx2-qt.exe, pcsx2.exe, pcsx2x64.exe | wiki=PCSX2
+RPCS3 | rpcs3.exe | wiki=RPCS3
+PPSSPP | PPSSPPWindows64.exe, PPSSPPWindows.exe | wiki=PPSSPP
+DuckStation | duckstation-qt-x64-ReleaseLTCG.exe, duckstation-qt.exe | wiki=DuckStation
+melonDS | melonDS.exe | wiki=MelonDS
+Citra | citra-qt.exe, citra.exe | wiki=Citra (emulator)
+Azahar | azahar.exe
+Xenia | xenia.exe, xenia_canary.exe | wiki=Xenia (emulator)
+Vita3K | Vita3K.exe
+mGBA | mGBA.exe | wiki=MGBA
+Project64 | Project64.exe | wiki=Project64
+DeSmuME | DeSmuME*.exe
+shadPS4 | shadPS4.exe
+
+@apps
+
+# --- Creative ---
+Adobe Photoshop | Photoshop.exe | id=adobe-photoshop
+Adobe Premiere Pro | Adobe Premiere Pro.exe
+Adobe After Effects | AfterFX.exe
+Adobe Illustrator | Illustrator.exe
+Adobe Lightroom Classic | Lightroom.exe
+Adobe Audition | Adobe Audition.exe
+Adobe Animate | Animate.exe
+Adobe InDesign | InDesign.exe
+Adobe Media Encoder | Adobe Media Encoder.exe
+Adobe Acrobat | Acrobat.exe, AcroRd32.exe
+Blender | blender.exe
+Cinema 4D | Cinema 4D.exe
+Autodesk Maya | maya.exe
+Autodesk 3ds Max | 3dsmax.exe
+ZBrush | ZBrush.exe
+Substance 3D Painter | Adobe Substance 3D Painter.exe
+DaVinci Resolve | Resolve.exe
+Vegas Pro | vegas*.exe
+CapCut | CapCut.exe
+Shotcut | shotcut.exe
+Kdenlive | kdenlive.exe
+HandBrake | HandBrake.exe
+Audacity | Audacity.exe
+FL Studio | FL64.exe, FL.exe
+Ableton Live | Ableton Live*.exe
+REAPER | reaper.exe
+Paint.NET | paintdotnet.exe
+GIMP | gimp*.exe
+Krita | krita.exe
+Clip Studio Paint | CLIPStudioPaint.exe
+Aseprite | Aseprite.exe
+Figma | Figma.exe
+Affinity Photo | Photo.exe{path:affinity}
+Affinity Designer | Designer.exe{path:affinity}
+Inkscape | inkscape.exe
+OBS Studio | obs64.exe, obs32.exe
+Streamlabs Desktop | Streamlabs OBS.exe, Streamlabs Desktop.exe
+Medal | Medal.exe
+Wallpaper Engine | wallpaper64.exe, wallpaper32.exe
+
+# --- Dev ---
+Visual Studio Code | Code.exe, Code - Insiders.exe
+Cursor | Cursor.exe
+Zed | Zed.exe
+Windsurf | Windsurf.exe
+Visual Studio | devenv.exe
+IntelliJ IDEA | idea64.exe, idea.exe
+PyCharm | pycharm64.exe, pycharm.exe
+WebStorm | webstorm64.exe
+GoLand | goland64.exe
+Rider | rider64.exe
+CLion | clion64.exe
+PhpStorm | phpstorm64.exe
+Android Studio | studio64.exe
+Unity Editor | Unity.exe{path:editor}
+Unity Hub | Unity Hub.exe
+Unreal Editor | UnrealEditor.exe, UE4Editor.exe
+Godot Engine | godot*.exe
+Roblox Studio | RobloxStudioBeta.exe
+GameMaker | GameMaker.exe
+Sublime Text | sublime_text.exe
+Notepad++ | notepad++.exe
+Windows Terminal | WindowsTerminal.exe
+GitHub Desktop | GitHubDesktop.exe
+Postman | Postman.exe
+Docker Desktop | Docker Desktop.exe
+Claude | Claude.exe
+ChatGPT | ChatGPT.exe
+
+# --- Browsers ---
+Google Chrome | chrome.exe
+Microsoft Edge | msedge.exe
+Firefox | firefox.exe
+Opera GX | opera.exe{path:opera gx}
+Opera | opera.exe
+Brave | brave.exe
+Vivaldi | vivaldi.exe
+Arc | Arc.exe
+Zen Browser | zen.exe
+Floorp | floorp.exe
+LibreWolf | librewolf.exe
+Tor Browser | firefox.exe{path:tor browser}
+
+# --- Social / music / office ---
+Discord | Discord.exe, DiscordPTB.exe, DiscordCanary.exe, Vesktop.exe
+Spotify | Spotify.exe
+Apple Music | AppleMusic.exe
+iTunes | iTunes.exe
+Telegram | Telegram.exe, AyuGram.exe
+WhatsApp | WhatsApp.exe, WhatsApp.Root.exe
+Signal | Signal.exe
+Slack | slack.exe
+Microsoft Teams | ms-teams.exe, Teams.exe
+Zoom | Zoom.exe
+TeamSpeak | ts3client_win64.exe, TeamSpeak.exe
+Guilded | Guilded.exe
+Microsoft Word | WINWORD.EXE
+Microsoft Excel | EXCEL.EXE
+Microsoft PowerPoint | POWERPNT.EXE
+Microsoft Outlook | OUTLOOK.EXE, olk.exe
+Microsoft OneNote | ONENOTE.EXE
+LibreOffice | soffice.exe, swriter.exe, scalc.exe
+Notion | Notion.exe
+Obsidian | Obsidian.exe
+Anki | anki.exe
+VLC | vlc.exe
+MPC-HC | mpc-hc64.exe, mpc-hc.exe
+mpv | mpv.exe
+Plex | Plex.exe
+Stremio | stremio.exe
+Netflix | Netflix.exe
+
+# --- Game launchers + gaming tools ---
+Steam | steam.exe, steamwebhelper.exe
+Epic Games Launcher | EpicGamesLauncher.exe
+Battle.net | Battle.net.exe
+EA app | EADesktop.exe
+Ubisoft Connect | UbisoftConnect.exe, upc.exe
+Riot Client | RiotClientServices.exe, Riot Client.exe, RiotClientUx.exe
+League of Legends Client | LeagueClient.exe, LeagueClientUx.exe
+GOG Galaxy | GalaxyClient.exe
+Xbox App | XboxPcApp.exe, XboxApp.exe
+Rockstar Games Launcher | Launcher.exe{path:rockstar games}, RockstarService.exe
+Amazon Games | Amazon Games.exe{path:amazon games}
+itch | itch.exe
+Playnite | Playnite.DesktopApp.exe, Playnite.FullscreenApp.exe
+Minecraft Launcher | MinecraftLauncher.exe
+Prism Launcher | prismlauncher.exe
+Modrinth App | Modrinth App.exe
+CurseForge | CurseForge.exe
+Lunar Client Launcher | Lunar Client.exe
+Overwolf | Overwolf.exe
+SteamVR | vrmonitor.exe, vrserver.exe
+Meta Quest Link | OculusClient.exe
+Virtual Desktop Streamer | VirtualDesktop.Streamer.exe
+Controller Companion | ControllerCompanion.exe
+DS4Windows | DS4Windows.exe
+MSI Afterburner | MSIAfterburner.exe
+NVIDIA App | NVIDIA app.exe
+AMD Software | RadeonSoftware.exe
+Parsec | parsecd.exe
+Moonlight | Moonlight.exe
+Cheat Engine | cheatengine*.exe
