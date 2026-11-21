@@ -336,8 +336,11 @@ func (t *Tracker) Tick() error {
 				idleApplies = st.IdlePauseGames
 			}
 			ls.idle = idleApplies && snap.Idle >= idleLimit
+			counts := ls.kind == model.KindGame || !st.AppsFocusOnly || g.focused
 			if wasRunning && dt > 0 && !t.paused && !ls.idle {
-				ls.played += dt
+				if counts {
+					ls.played += dt
+				}
 				if g.focused {
 					ls.focus += dt
 				}

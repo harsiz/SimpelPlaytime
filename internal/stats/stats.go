@@ -541,3 +541,29 @@ func Resolve(id string, now time.Time, first time.Time) (from, to time.Time, g G
 	}
 	return today.AddDate(0, 0, -29), to, Day
 }
+
+// Clip keeps only the part of every session that falls between from and to
+// (zero times mean open ended). Played and focus seconds are scaled down to
+// the kept share.
+func Clip(sessions []model.Session, from, to time.Time) []model.Session {
+	out := make([]model.Session, 0, len(sessions))
+	for _, s := range sessions {
+		secs := overlapSecs(s, from, to)
+		if secs <= 0 {
+			continue
+		}
+		c := s
+		if !from.IsZero() && from.After(c.Start) {
+			c.Start = from
+		}
+		if !to.IsZero() && to.Before(c.End) {
+			c.End = to
+		}
+		if s.Secs > 0 {
+			c.Focus = int64(float64(s.Focus) * secs / float64(s.Secs))
+		}
+		c.Secs = int64(secs + 0.5)
+		out = append(out, c)
+	}
+	return out
+}

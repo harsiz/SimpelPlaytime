@@ -41,6 +41,7 @@ type Settings struct {
 	// Tracking
 	TrackMode         string   `json:"trackMode"`
 	PollSeconds       int      `json:"pollSeconds"`
+	AppsFocusOnly     bool     `json:"appsFocusOnly"`
 	IdlePauseApps     bool     `json:"idlePauseApps"`
 	IdlePauseGames    bool     `json:"idlePauseGames"`
 	IdleMinutes       int      `json:"idleMinutes"`
@@ -86,6 +87,7 @@ func Defaults() Settings {
 		FreeMemoryWhenHidden: true,
 		TrackMode:            TrackWindowed,
 		PollSeconds:          5,
+		AppsFocusOnly:        true,
 		IdlePauseApps:        true,
 		IdlePauseGames:       false,
 		IdleMinutes:          5,

@@ -235,3 +235,14 @@ func TestFormatting(t *testing.T) {
 		t.Error("bucket labels")
 	}
 }
+
+func TestClip(t *testing.T) {
+	ss := []model.Session{s("a", at(1, 23, 0), 120), s("b", at(5, 10, 0), 60)}
+	c := Clip(ss, at(2, 0, 0), at(3, 0, 0))
+	if len(c) != 1 || c[0].Secs != 3600 || c[0].Focus != 1800 || !c[0].Start.Equal(at(2, 0, 0)) || !c[0].End.Equal(at(2, 1, 0)) {
+		t.Errorf("clip = %+v", c)
+	}
+	if n := len(Clip(ss, time.Time{}, time.Time{})); n != 2 {
+		t.Errorf("open clip = %d", n)
+	}
+}

@@ -189,8 +189,25 @@ func TestShortStallDoesNotSplitButIsNotCounted(t *testing.T) {
 	}
 }
 
+func TestAppsFocusOnly(t *testing.T) {
+	h := newHarness(t)
+	h.st.AppsFocusOnly = true
+	h.run("app.exe", "other.exe", "g.game.exe")
+	h.snap.ForegroundPID = 100 // app.exe
+	h.step(5*time.Second, 7)   // 30s
+	h.snap.ForegroundPID = 101 // other.exe
+	h.step(5*time.Second, 2)   // 10s
+	app, _ := h.tr.LiveFor("k:app")
+	other, _ := h.tr.LiveFor("k:other")
+	game, _ := h.tr.LiveFor("k:g")
+	if app.Secs != 30 || other.Secs != 10 || game.Secs != 40 {
+		t.Errorf("app=%d other=%d game=%d", app.Secs, other.Secs, game.Secs)
+	}
+}
+
 func TestIdleAndFocus(t *testing.T) {
 	h := newHarness(t)
+	h.st.AppsFocusOnly = false
 	h.st.IdlePauseApps = true
 	h.st.IdlePauseGames = false
 	h.st.IdleMinutes = 5
@@ -290,6 +307,7 @@ func TestBreakReminder(t *testing.T) {
 
 func TestUserKindChangeIsRespected(t *testing.T) {
 	h := newHarness(t)
+	h.st.AppsFocusOnly = false
 	h.st.IdlePauseApps = true
 	h.st.IdlePauseGames = false
 	h.run("thing.exe")
